@@ -1,35 +1,28 @@
 'use client';
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF } from '@react-three/drei';
-import React, { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Group } from 'three';
 
-function HeadModel() {
-  const { scene } = useGLTF('/antinous.glb');
-  scene.rotateX(1)
+const Model = () => {
+  const ref = useRef<Group>(null);
+  const [model, setModel] = useState<Group>();
 
+  useEffect(() => {
+    const loader = new GLTFLoader();
+    loader.load('/scene.glb', (gltf) => {
+      setModel(gltf.scene);
+    });
+  }, []);
 
+  useFrame(() => {
+    if (ref.current) {
+      ref.current.rotation.y += 0.002; 
+    }
+  });
 
-  const modelRef = useRef();
+  return model ? <primitive object={model} ref={ref} /> : null;
+};
 
-  // useFrame(() => {
-  //   if (modelRef.current) {
-  //     modelRef.current.rotation.x += 0.001; // Rotate around the Z-axis
-  //   }
-  // });
-
-  return <primitive ref={modelRef} object={scene} />;
-}
-
-export default function RotatingHead() {
-  return (
-    <div className='h-screen w-full justify-center items-center'>
-      <Canvas style={{ height: '50vh', width: '100%' }} camera={{ fov: 75, position: [0, 0, 10] }}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <HeadModel />
-    </Canvas>
-    </div>
-    
-  );
-}
+export default Model;
