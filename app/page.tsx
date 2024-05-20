@@ -1,12 +1,8 @@
 'use client'
 
 import Card from "@/components/card";
-import Picture1 from "@/public/pic-1.PNG"
-import Picture2 from "@/public/pic-2.jpeg"
-import Picture3 from "@/public/pic-3.PNG"
-import RotatingHead from "@/components/RotatingHead";
 import { Canvas } from '@react-three/fiber';
-import Model from '../components/RotatingHead';
+import Model from '@/components/RotatingHead';
 
 export default function Home() {
   return (
@@ -27,13 +23,13 @@ export default function Home() {
 
     <main className="flex gap-8 mx-2 lg:mx-12 mb-6 justify-center items-center flex-wrap">
       
-      <Card link={Picture1} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
-      <Card link={Picture2} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
-      <Card link={Picture3} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
-      <Card link={Picture3} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" /> 
-      <Card link={Picture1} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
-      <Card link={Picture1} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
-      <Card link={Picture1} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-1.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-2.jpeg"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-3.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-3.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-1.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-1.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
+      <Card link={"/pic-1.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
       
 
 

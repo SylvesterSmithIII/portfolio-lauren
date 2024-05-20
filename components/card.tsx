@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { StaticImageData } from 'next/image';
 
-export default function Card({ link, alt, title, description }: {link: StaticImageData, alt: string, title: string, description: string}) {
+export default function Card({ link, alt, title, description }: {link: string, alt: string, title: string, description: string}) {
     return (
         <div className="w-[320px] h-[430px] border-black border-2 flex flex-col p-4 gap-3 bg-white">
             <div className="ml-auto">

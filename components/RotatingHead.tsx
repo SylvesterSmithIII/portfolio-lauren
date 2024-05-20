@@ -6,11 +6,12 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Group } from 'three';
 
 const Model = () => {
+
   const ref = useRef<Group>(null);
   const [model, setModel] = useState<Group>();
 
   useEffect(() => {
-    const loader = new GLTFLoader();
+    const loader: any = new GLTFLoader();
     loader.load('/scene.glb', (gltf) => {
       setModel(gltf.scene);
     });
