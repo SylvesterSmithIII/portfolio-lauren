@@ -2,26 +2,32 @@
 
 import Card from "@/components/card";
 import { Canvas } from '@react-three/fiber';
-import Model from '@/components/RotatingHead';
+// import Model from '@/components/RotatingHead';
+import Image from "next/image";
 
 export default function Home() {
   return (
     <>
+<div className="h-screen w-full relative overflow-hidden">
+      <video
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        autoPlay
+        muted
+        playsInline
+      >
+        <source src="/vid.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      <div className="h-[83.33vh] w-full relative">
-        <h1 className="absolute inset-0 flex mt-24 lg:mt-12 justify-center text-3xl lg:text-7xl">I AM NOT AN ARTIST</h1>
-        
+      <div className="absolute inset-0 flex mt-44 items-center justify-center text-3xl lg:text-7xl">
+        <Image src={"/head.png"} alt="head pic" width={500} height={500}></Image>
+      </div>
 
-          <Canvas style={{ height: '83.33vh', width: '100%',}}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[-5, 5, 0]} intensity={1000} />
-            <Model />
-          </Canvas>
-
-          
-        </div>
-
-    <main className="flex gap-8 mx-2 lg:mx-12 mb-6 justify-center items-center flex-wrap">
+      <h1 className="absolute top-0 left-0 right-0 flex justify-center items-start mt-4">
+        <Image src="/logo.png" alt="head pic" width={500} height={500} />
+      </h1>
+    </div>
+    <main className="flex gap-8 px-2 lg:px-12 pb-6 justify-center items-center flex-wrap bg-black">
       
       <Card link={"/pic-1.PNG"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
       <Card link={"/pic-2.jpeg"} alt="pic-1" title="TITLE" description="lorem ipsum shit bitch fuck" />
